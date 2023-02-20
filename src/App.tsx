@@ -1,13 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
 import { List } from "./List";
-
-type ListType = {
-  userId: number;
-  id: number;
-  title: string;
-  completed: boolean;
-};
+import { ListType } from "./types/list";
 
 export default function App() {
   const [lists, setLists] = useState<Array<ListType>>([]);
@@ -20,7 +14,7 @@ export default function App() {
     <div>
       <button onClick={onClickFetchData}>データ取得</button>
       {lists.map((list) => (
-        <List title={list.title} userId={list.userId} completed={list.completed} />
+        <List key={list.id} title={list.title} userId={list.userId} completed={list.completed} />
       ))}
     </div>
   );
