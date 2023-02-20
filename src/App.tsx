@@ -20,7 +20,7 @@ export default function App() {
     <div>
       <button onClick={onClickFetchData}>データ取得</button>
       {lists.map((list) => (
-        <List title={list.title} userId={list.userId} />
+        <List title={list.title} userId={list.userId} completed={list.completed} />
       ))}
     </div>
   );
