@@ -3,6 +3,13 @@ import { useState } from "react";
 import { List } from "./List";
 import { ListType } from "./types/list";
 import { Text } from "./Text";
+import { UserProfile } from "./UserProfile";
+import { User } from "./types/user";
+
+const user: User = {
+  name: "ザキ",
+  hobbies: ["映画", "ゲーム"],
+};
 
 export default function App() {
   const [lists, setLists] = useState<Array<ListType>>([]);
@@ -13,6 +20,7 @@ export default function App() {
   };
   return (
     <div>
+      <UserProfile user={user} />
       <Text color="red" fontSize="18px" />
       <button onClick={onClickFetchData}>データ取得</button>
       {lists.map((list) => (
